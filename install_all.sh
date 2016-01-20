@@ -111,14 +111,14 @@ echo 'Installing TH++'
 echo
 
 cd $dir/thpp/thpp
-./build.sh
+sudo ./build.sh
 
 echo
 echo 'Installing FBLuaLib'
 echo
 
 cd $dir/fblualib/fblualib
-./build.sh
+sudo ./build.sh
 
 echo
 echo 'All done!'
