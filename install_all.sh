@@ -82,7 +82,8 @@ echo '(Re)Installing Torch dependencies'
 echo
 
 curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
-curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-luajit+torch | bash
+curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-luajit+torch | PREFIX=~/home bash
+
 
 
 echo
