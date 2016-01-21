@@ -78,6 +78,14 @@ sudo apt-get install -y \
     python-numpy
 
 echo
+echo '(Re)Installing Torch dependencies'
+echo
+
+curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-luajit+torch | bash
+
+
+echo
 echo Cloning repositories
 echo
 git clone -b v0.35.0  --depth 1 https://github.com/facebook/folly.git
