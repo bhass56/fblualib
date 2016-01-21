@@ -27,10 +27,8 @@ if [[ $issue =~ ^Ubuntu\ 13\.10 ]]; then
     :
 elif [[ $issue =~ ^Ubuntu\ 14 ]]; then
     extra_packages=libiberty-dev
-elif [[ $issue =~ ^Ubuntu\ 15\.04 ]]; then
-    extra_packages=libiberty-dev
 else
-    echo "Ubuntu 13.10, 14.* or 15.04 required" >&2
+    echo "Ubuntu 13.10 or 14.* required" >&2
     exit 1
 fi
 
@@ -78,21 +76,12 @@ sudo apt-get install -y \
     python-numpy
 
 echo
-echo '(Re)Installing Torch dependencies'
-echo
-
-curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
-curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-luajit+torch | PREFIX=~/home bash
-
-
-
-echo
 echo Cloning repositories
 echo
 git clone -b v0.35.0  --depth 1 https://github.com/facebook/folly.git
 git clone -b v0.24.0  --depth 1 https://github.com/facebook/fbthrift.git
 git clone https://github.com/facebook/thpp
-git clone https://github.com/facebook/fblualib
+git clone https://github.com/soumith/fblualib
 
 echo
 echo Building folly
@@ -120,14 +109,14 @@ echo 'Installing TH++'
 echo
 
 cd $dir/thpp/thpp
-sudo ./build.sh
+./build.sh
 
 echo
 echo 'Installing FBLuaLib'
 echo
 
 cd $dir/fblualib/fblualib
-sudo ./build.sh
+./build.sh
 
 echo
 echo 'All done!'
